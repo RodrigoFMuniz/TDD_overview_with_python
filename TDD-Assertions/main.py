@@ -5,3 +5,6 @@ try:
 
 except AssertionError as e:
     print('Error: ', e)
+
+
+print('Continuando a execução....')
