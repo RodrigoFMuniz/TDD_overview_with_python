@@ -16,12 +16,20 @@ class TestCalc(TestCase):
             (32,20,52),
             (1112,2,1114),
             (67,-7,60),
-            (39,-43,-5),
+            (39,-43,-4),
         ]
 
         for x_y_saida in x_y_saidas:
             with self.subTest(x_y_saida=x_y_saida):
                 x,y,s = x_y_saida
                 self.assertEqual(sum(x,y),s)
+    
+    def test_param_x_nao_eh_int_ou_float_levanta_assertionerror(self):
+        with self.assertRaises(AssertionError):
+            sum("2",2)
+
+    def test_param_y_nao_eh_int_ou_float_levanta_assertionerror(self):
+        with self.assertRaises(AssertionError):
+            sum(2,"2")
 
 unittest.main(verbosity=2)
